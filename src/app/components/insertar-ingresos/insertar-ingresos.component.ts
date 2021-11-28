@@ -7,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsertarIngresosComponent implements OnInit {
 
+  mostrar: Boolean = false;
+  mensaje: String = 'Hola manco';
+  mensaje_enlace: String = 'Mostrar';
+  seleccion = 5;
+
+  mostrarOcultar (){
+   this.mostrar = !this.mostrar;
+   console.log(this.seleccion);
+   
+  }
   constructor() { }
 
   ngOnInit(): void {
