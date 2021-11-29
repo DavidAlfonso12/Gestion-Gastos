@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-insertar-ingresos',
@@ -6,20 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./insertar-ingresos.component.css']
 })
 export class InsertarIngresosComponent implements OnInit {
-
-  mostrar: Boolean = false;
-  mensaje: String = 'Hola manco';
-  mensaje_enlace: String = 'Mostrar';
-  seleccion = 5;
-
-  mostrarOcultar (){
-   this.mostrar = !this.mostrar;
-   console.log(this.seleccion);
-   
+  ingresosForm: FormGroup;
+  
+  fecha1= new Date();
+  constructor(private fb: FormBuilder){
+    this.ingresosForm = this.fb.group({
+      tipoIngreso: ['1',Validators.required],
+      nombreIngreso: ['',Validators.required],
+      fecha: ['',Validators.required],
+      valorIngreso: ['',Validators.required]
+    })
+ 
   }
-  constructor() { }
-
   ngOnInit(): void {
   }
-
+  agregarIngreso() {
+    console.log(this.ingresosForm.value)
+    console.log(this.fecha1)
+  }
 }

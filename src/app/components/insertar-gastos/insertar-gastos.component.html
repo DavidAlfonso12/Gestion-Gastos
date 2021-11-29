@@ -1,11 +1,11 @@
 <div class="container divPrincipal ">
     <div class="row">
         <div class="col-1"></div>
-        <form class="form col-10 bg-dark">
+        <form class="form col-10 bg-dark" [formGroup]='gastosForm' (ngSubmit)="agregarGasto() ">
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-6 mt-5 mb-2">
-                    <select class="form-select ml-4" aria-label="Default select example">
+                    <select class="form-select ml-4"  formControlName="tipoGasto" aria-label="Default select example">
                         <option value="1">Servicios</option>
                         <option value="2">Alimentacion</option>
                         <option value="3">Otros</option>
@@ -15,29 +15,29 @@
                     <div class="col-2"></div>
                     <div class="col-8 ">
                         <div class="col-3"></div>
-                        <label class="text-light mb-1">Servicio</label>
-                        <select class="form-select ml-4 mb-4" aria-label="Default select example">
+                        <label class="text-light mb-1" *ngIf="gastosForm.value.tipoGasto == 1">Servicio</label>
+                        <select class="form-select ml-4 mb-4"  formControlName="servicio" aria-label="Default select example" *ngIf="gastosForm.value.tipoGasto == 1">
                             <option value="1">Agua</option>
                             <option value="2">Luz</option>
                             <option value="3">Gas</option>
                             <option value="4">Internet</option>
                         </select>
-                        <div class="mb-4">
+                        <div class="mb-4" *ngIf="gastosForm.value.tipoGasto != 1">
                             <label class="text-light mb-1">Nombre del gasto</label>
-                            <input type="text" class="form-control" id="Nombre" >
+                            <input type="text" formControlName="nombreGasto" class="form-control"  >
                         </div>    
                         <div class="mb-4">
-                            <label class="text-light mb-1">Fecha</label>
-                            <input type="date" class="form-control" id="Nombre" >
+                            <label class="text-light mb-1" >Fecha</label>
+                            <input type="date" formControlName="fecha" class="form-control"  >
                         </div>
                         <div class="col-2"></div>
                         <div class="mb-4">
-                            <label class="text-light mb-1">Valor ingreso</label>
-                            <input type="number" class="form-control" id="Nombre" >
+                            <label class="text-light mb-1" >Valor gasto</label>
+                            <input type="number" formControlName="valorGasto" class="form-control"  >
                         </div>
                         <div class="row mb-5 mt-5">
                             <div class="col-4"></div>
-                            <button type="button" class="col-4 btn btn-success btn-lg">Guardar</button>
+                            <button type="submit" class="col-4 btn btn-success btn-lg">Guardar</button>
                         </div>
                     </div>
                 </div>    
