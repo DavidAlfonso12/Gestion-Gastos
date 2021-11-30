@@ -6,14 +6,13 @@
                 <div class="col-3"></div>
                 <div class="col-6 mt-5 mb-2">
                     <select class="form-select ml-4" formControlName="tipoIngreso" aria-label="Default select example" >
-                        <option value="1">Sueldo</option>
-                        <option value="2">Ingresos extras</option>
+                        <option *ngFor="let tipoIngreso of tipoIngresos" value="{{tipoIngreso}}">{{tipoIngreso}}</option>W
                     </select>
                 </div>
                     <div class="row mt-5">
                         <div class="col-2"></div>
                         <div class="col-8 ">
-                            <div class="mb-4" *ngIf="ingresosForm.value.tipoIngreso == 2">
+                            <div class="mb-4" *ngIf="ingresosForm.value.tipoIngreso == tipoIngresos[1]">
                                 <label  class="text-light mb-1">Nombre de Ingreso extra</label>
                                 <input type="text" formControlName="nombreIngreso" class="form-control" >
                             </div>    

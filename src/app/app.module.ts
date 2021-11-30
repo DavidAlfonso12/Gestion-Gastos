@@ -4,12 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms'; 
+import { HttpClientModule } from '@angular/common/http';
 
 // componentes
 import { InsertarIngresosComponent } from './components/insertar-ingresos/insertar-ingresos.component';
 import { InsertarGastosComponent } from './components/insertar-gastos/insertar-gastos.component';
-import { ListadoComponent } from './components/listado/listado.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { ConsultaComponent } from './components/consulta/consulta.component';
 
 
 @NgModule({
@@ -17,13 +18,14 @@ import { MenuComponent } from './components/menu/menu.component';
     AppComponent,
     InsertarIngresosComponent,
     InsertarGastosComponent,
-    ListadoComponent,
-    MenuComponent
+    MenuComponent,
+    ConsultaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

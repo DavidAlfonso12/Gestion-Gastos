@@ -8,16 +8,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class InsertarIngresosComponent implements OnInit {
   ingresosForm: FormGroup;
+  tipoIngresos= ['Sueldo','Ingreso extra',]
   
   fecha1= new Date();
   constructor(private fb: FormBuilder){
     this.ingresosForm = this.fb.group({
-      tipoIngreso: ['1',Validators.required],
+      tipoIngreso: ['Sueldo',Validators.required],
       nombreIngreso: ['',Validators.required],
       fecha: ['',Validators.required],
       valorIngreso: ['',Validators.required]
     })
- 
+    console.log(this.tipoIngresos)
   }
   ngOnInit(): void {
   }

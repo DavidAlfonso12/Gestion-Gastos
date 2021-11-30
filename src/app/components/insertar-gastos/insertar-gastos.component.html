@@ -1,22 +1,21 @@
 <div class="container divPrincipal ">
     <div class="row">
         <div class="col-1"></div>
-        <form class="form col-10 bg-dark" [formGroup]='gastosForm' (ngSubmit)="agregarGasto() ">
+        <form class="form col-10 bg-dark mb-5" [formGroup]='gastosForm' (ngSubmit)="agregarGasto() ">
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-6 mt-5 mb-2">
                     <select class="form-select ml-4"  formControlName="tipoGasto" aria-label="Default select example">
-                        <option value="1">Servicios</option>
-                        <option value="2">Alimentacion</option>
-                        <option value="3">Otros</option>
+                        <option *ngFor="let tipogasto of tipoGastos" value="{{tipogasto}}">{{tipogasto}}</option>
+
                     </select>
                 </div>
                 <div class="row mt-5">
                     <div class="col-2"></div>
                     <div class="col-8 ">
                         <div class="col-3"></div>
-                        <label class="text-light mb-1" *ngIf="gastosForm.value.tipoGasto == 1">Servicio</label>
-                        <select class="form-select ml-4 mb-4"  formControlName="servicio" aria-label="Default select example" *ngIf="gastosForm.value.tipoGasto == 1">
+                        <label class="text-light mb-1" *ngIf="gastosForm.value.tipoGasto == tipoGastos[0]">Servicio</label>
+                        <select class="form-select ml-4 mb-4"  formControlName="servicio" aria-label="Default select example" *ngIf="gastosForm.value.tipoGasto == tipoGastos[0]" >
                             <option value="1">Agua</option>
                             <option value="2">Luz</option>
                             <option value="3">Gas</option>

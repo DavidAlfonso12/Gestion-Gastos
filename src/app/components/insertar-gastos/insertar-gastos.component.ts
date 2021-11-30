@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ServiceGastosService } from 'src/app/services/service-gastos.service';
 
 @Component({
   selector: 'app-insertar-gastos',
@@ -8,20 +9,32 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class InsertarGastosComponent implements OnInit {
   gastosForm: FormGroup;
-  
+  tipoGastos= ['servicio','alimentacion','otros',]
+
   fecha2= new Date();
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder, private _gastosCervicio: ServiceGastosService ){
     this.gastosForm = this.fb.group({
-      tipoGasto: ['1',Validators.required],
+      tipoGasto: ['servicio',Validators.required],
       servicio: ['',Validators.required],
       nombreGasto: ['',Validators.required],
       fecha: ['',Validators.required],
       valorGasto: ['',Validators.required]
-    })
-  }  
-  ngOnInit(): void {
+    })   
   }
+  ngOnInit(): void {
+    this.obtenerListadoServicios();
+  }
+  obtenerListadoServicios() {
+    this._gastosCervicio.getGastoCervicios().subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+      
+    });
+    
+  }
+
   agregarGasto() {
     console.log(this.gastosForm.value)
   }
-}
+} 
