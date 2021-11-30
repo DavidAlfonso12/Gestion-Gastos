@@ -11,7 +11,7 @@ export class InsertarGastosComponent implements OnInit {
   gastosForm: FormGroup;
   tipoGastos= ['servicio','alimentacion','otros',]
 
-  fecha2= new Date();
+
   constructor(private fb: FormBuilder, private _gastosCervicio: ServiceGastosService ){
     this.gastosForm = this.fb.group({
       tipoGasto: ['servicio',Validators.required],
