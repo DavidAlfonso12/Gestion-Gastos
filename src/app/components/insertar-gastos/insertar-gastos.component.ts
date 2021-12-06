@@ -42,12 +42,15 @@ export class InsertarGastosComponent implements OnInit {
   }
 
   agregarGasto() {
-    // console.log(this.gastosForm.value);
-
-    // console.log(this.gastosForm.get('nombreGasto')?.value);
-
-    const Gasto: DatoContable = { 
-      nombre: this.gastosForm.get('nombreGasto')?.value,
+    let nombreGasto = '';  
+    if (this.gastosForm.get('tipoGasto')?.value == this.tipoGastos[0]) {
+        nombreGasto = this.gastosForm.get('servicio')?.value
+      } else {
+        nombreGasto = this.gastosForm.get('nombreGasto')?.value
+      }
+      
+    const Gasto: DatoContable = {
+      nombre: nombreGasto,
       fecha: this.gastosForm.get('fecha')?.value,
       valor: this.gastosForm.get('valorGasto')?.value
     }

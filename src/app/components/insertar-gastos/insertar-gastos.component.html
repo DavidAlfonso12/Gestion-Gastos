@@ -16,7 +16,7 @@
                         <div class="col-3"></div>
                         <label class="text-light mb-1" *ngIf="gastosForm.value.tipoGasto == tipoGastos[0]">Servicio</label>
                         <select class="form-select ml-4 mb-4"  formControlName="servicio" aria-label="Default select example" *ngIf="gastosForm.value.tipoGasto == tipoGastos[0]" >
-                            <option *ngFor="let listado of listadoServicio" value="1">{{listado.servicio}}</option>
+                            <option *ngFor="let listado of listadoServicio" value="{{listado.servicio}}">{{listado.servicio}}</option>
                         </select>
                         <div class="mb-4" *ngIf="gastosForm.value.tipoGasto != tipoGastos[0]">
                             <label class="text-light mb-1">Nombre del gasto</label>
