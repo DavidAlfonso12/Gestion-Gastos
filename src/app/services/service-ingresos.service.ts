@@ -7,11 +7,11 @@ import { DatoContable } from '../models/dato-contable';
   providedIn: 'root'
 })
 export class ServiceIngresosService {
-  url= '';
+  url= 'http://localhost:4000/api/ingresos/';
 
   constructor(private http: HttpClient) { }
 
-  guardarGastos(gasto: DatoContable): Observable<any> {
-    return this.http.post(this.url, gasto);
+  guardarIngreso(ingreso: DatoContable): Observable<any> {
+    return this.http.post(this.url, ingreso);
   }
 }
