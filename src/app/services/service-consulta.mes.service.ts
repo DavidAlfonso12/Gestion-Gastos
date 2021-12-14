@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
 export class ConsultaMes {
   url= 'http://localhost:4000/api/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  ConsultaServicio(consulta: any): Observable<any> {
-    return this.http.post(this.url,consulta);
+  ConsultaServicio(consultas: any): Observable<any> {
+    return this.http.post(this.url,consultas);
   }
 }
