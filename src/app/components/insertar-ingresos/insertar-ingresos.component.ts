@@ -11,19 +11,19 @@ import { ServiceIngresosService } from 'src/app/services/service-ingresos.servic
 })
 export class InsertarIngresosComponent implements OnInit {
   ingresosForm: FormGroup;
-  tipoIngresos= ['Sueldo','Ingreso extra',]
+  tipoIngresos= ['Sueldo','Ingreso extra']
   
-  fecha1= new Date();
+  fecha1 = new Date();
   constructor(private fb: FormBuilder,
               private _ingresoService: ServiceIngresosService,
               private toast: ToastrService){
     this.ingresosForm = this.fb.group({
       tipoIngreso: ['Sueldo',Validators.required],
       nombreIngreso: ['',Validators.required],
-      fecha: ['',Validators.required],
+      fecha: ['fecha1',Validators.required],
       valorIngreso: ['',Validators.required]
     })
-    console.log(this.tipoIngresos)
+    console.log(this.fecha1)
   }
   ngOnInit(): void {
   }

@@ -1,1 +1,75 @@
-<p>consulta works!</p>
+<div class="divPrincipal">
+    <div class="row">
+        <div class="col-2"></div>
+            <form class="form col-8 bg-dark" [formGroup]= "consultaForm" (ngSubmit)="agregarFecha()" >  
+            <div class="row">
+                <div class="mt-4 mb-4 "></div>
+                <div class="row mt-1">
+                    <div class="col-2"></div>
+                    <div class="col-8 ">
+                        <div class="mb-4">
+                            <label class="text-light mb-1" >Filtro mensual</label>
+                            <input type="date" formControlName="fecha">
+                        </div>
+                        <div class="row mb-5 mt-5">
+                            <div class="col-4"></div>
+                            <button type="submit" class="col-4 btn btn-success btn-lg">Buscar</button>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </form>
+    </div>
+    <div class="row mt-5">
+        <table class="table table-dark ">
+            <thead>
+              <tr>
+                  <th colspan="2">Nombre</th>
+                  <th >fecha</th>
+                  <th>valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="2">3</td>
+                <td >Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+              <tr class="space">
+                <td colspan="2" ></td>
+                <td>
+                    <h5 class="ml-2">Total</h5>
+                </td>
+                <td>
+                    <h5>5000</h5>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-dark ">
+            <thead>
+              <tr>
+                  <th colspan="2">Nombre</th>
+                  <th >fecha</th>
+                  <th>valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="2">3</td>
+                <td >Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+              <tr class="space">
+                <td colspan="2" ></td>
+                <td>
+                    <h5 class="ml-2">Total</h5>
+                </td>
+                <td>
+                    <h5>5000</h5>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
