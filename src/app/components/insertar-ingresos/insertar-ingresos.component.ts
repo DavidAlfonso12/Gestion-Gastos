@@ -45,5 +45,6 @@ export class InsertarIngresosComponent implements OnInit {
     this._ingresoService.guardarIngreso(ingresoC).subscribe(date =>{
       this.toast.success('El ingreso fue registrado con exito!', 'Ingreso registrado!');
     })
+    this.ingresosForm.reset();
   }
 }

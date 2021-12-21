@@ -53,10 +53,12 @@ export class InsertarGastosComponent implements OnInit {
       nombre: nombreGasto,
       fecha: this.gastosForm.get('fecha')?.value,
       valor: this.gastosForm.get('valorGasto')?.value
+      
     }
     console.log(Gasto);
     this._gastoService.guardarGastos(Gasto).subscribe(date =>{
       this.toast.success('El gasto fue registrado con exito!', 'Gasto registrado!');
     })
+    this.gastosForm.reset();
   }
 } 

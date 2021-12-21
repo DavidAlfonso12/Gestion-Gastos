@@ -20,8 +20,38 @@
             </div>
         </form>
     </div>
-    <div class="row mt-5">
-        <table class="table table-dark ">
+    <div class="row mt-5" >
+      <div *ngIf="consultaGastos.length >0">
+        <h5 >Gastos</h5>
+        <table class="table table-dark " >
+          <thead>
+            <tr>
+                <th colspan="2">Nombre</th>
+                <th >fecha</th>
+                <th>valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let listado of consultaGastos">
+              <td colspan="2">{{listado.nombre}}</td>
+              <td >{{listado.fecha |date}}</td>
+              <td>{{listado.valor | currency:'COP '}}</td>
+            </tr>
+            <tr class="space" *ngIf="this.totalGastos > 0">
+              <td colspan="2" ></td>
+              <td>
+                  <h5 class="ml-2">Total</h5>
+              </td>
+              <td>
+                  <h5>{{this.totalGastos | currency:'COP '}}</h5>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+         <div *ngIf="consultaIngresos.length >0">
+          <h5 >Ingresos</h5>
+          <table class="table table-dark">
             <thead>
               <tr>
                   <th colspan="2">Nombre</th>
@@ -30,46 +60,22 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td colspan="2">3</td>
-                <td >Larry the Bird</td>
-                <td>@twitter</td>
+              <tr *ngFor="let listado of consultaIngresos">
+                <td colspan="2">{{listado.nombre}}</td>
+                <td >{{listado.fecha |date}}</td>
+                <td>{{listado.valor | currency}}</td>
               </tr>
-              <tr class="space">
+              <tr class="space" *ngIf="this.totalIngresos > 0">
                 <td colspan="2" ></td>
                 <td>
                     <h5 class="ml-2">Total</h5>
                 </td>
                 <td>
-                    <h5>5000</h5>
+                    <h5>{{this.totalIngresos | currency:'COP '}}</h5>
                 </td>
               </tr>
             </tbody>
           </table>
-          <table class="table table-dark ">
-            <thead>
-              <tr>
-                  <th colspan="2">Nombre</th>
-                  <th >fecha</th>
-                  <th>valor</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="2">3</td>
-                <td >Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr class="space">
-                <td colspan="2" ></td>
-                <td>
-                    <h5 class="ml-2">Total</h5>
-                </td>
-                <td>
-                    <h5>5000</h5>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+         </div>
     </div>
 </div>
